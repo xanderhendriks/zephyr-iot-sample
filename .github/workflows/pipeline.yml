@@ -6,7 +6,6 @@ on:
   pull_request:
 jobs:
   build-sample_application:
-    needs: analyse-code
     name: Build the sample application binary
     runs-on: ubuntu-24.04
     container:
