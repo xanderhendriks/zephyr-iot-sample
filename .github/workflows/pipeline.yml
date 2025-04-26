@@ -18,7 +18,6 @@ jobs:
       - name: Setup Zephyr project
         uses: zephyrproject-rtos/action-zephyr-setup@v1
         with:
-          app-path: app
           toolchains: arm-zephyr-eabi
       - name: Build the sample_application binary
         working-directory: app
