@@ -59,6 +59,8 @@ int main(void)
         .timeout = SYS_FOREVER_MS,
     };
 
+    LOG_INF("Firmware version: %s", GIT_VERSION);
+
     net_mgmt_init_event_callback(&wifi_cb, wifi_event_handler,
         NET_EVENT_WIFI_CONNECT_RESULT |
         NET_EVENT_WIFI_DISCONNECT_RESULT);

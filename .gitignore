@@ -1,6 +1,16 @@
-.west
-app/build
-bootloader
-modules
-tools
-zephyr
+# editors
+.vscode
+*.swp
+*~
+
+# python
+.venv
+
+# build
+/build*
+/twister-out*
+
+__pycache__/
+
+# docs
+/doc/_build*
