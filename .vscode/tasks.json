@@ -1,0 +1,72 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "West Build",
+            "type": "shell",
+            "command": "west",
+            "args": [
+                "build",
+                "-b",
+                "b_l4s5i_iot01a",
+                "app"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/zephyr-iot-sample"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "West Flash",
+            "type": "shell",
+            "command": "west",
+            "args": [
+                "flash",
+                "--runner",
+                "openocd"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/zephyr-iot-sample"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Start OpenOCD",
+            "type": "shell",
+            "command": "/opt/toolchains/zephyr-sdk-0.17.0/sysroots/x86_64-pokysdk-linux/usr/bin/openocd",
+            "args": [
+                "-f",
+                "interface/stlink.cfg",
+                "-f",
+                "target/stm32l4x.cfg"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "openocd-filter",
+                "pattern": [
+                    {
+                        "regexp": "^(?=a)b",
+                        "file": 1,
+                        "message": 1,
+                        "line": 1
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Open On-Chip Debugger.*",
+                    "endsPattern": "Info : Listening on port 3333 for gdb connections"
+                },
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "dedicated"
+            }
+        }
+    ]
+}

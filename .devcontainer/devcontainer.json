@@ -1,0 +1,23 @@
+{
+  "name": "Zephyr IoT Sample Container",
+  "image": "zephyrprojectrtos/ci:v0.27.5",
+  "platform": "linux/amd64",
+  "workspaceMount": "source=${localWorkspaceFolder}/..,target=/workdir,type=bind",
+  "workspaceFolder": "/workdir",
+  "runArgs": [
+    "--privileged",
+    "--user=1000:1000",
+    "--mount",
+    "type=bind,source=/dev/bus/usb,target=/dev/bus/usb",
+    "--mount",
+    "type=bind,source=/mnt/c/Users/xande/.ssh,target=/home/user/.ssh,readonly"
+  ],
+  "extensions": [
+    "ms-vscode.cmake-tools",
+    "ms-vscode.cpptools",
+    "ms-vscode.cpptools-extension-pack",
+    "ms-azuretools.vscode-docker",
+    "xaver.clang-format"
+  ],
+  "postCreateCommand": "ln -s zephyr-iot-sample/.vscode .vscode"
+}

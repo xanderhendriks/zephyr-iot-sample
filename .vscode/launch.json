@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "name": "Debug with VSCode (ST-Link)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/zephyr-iot-sample/build/zephyr/zephyr.elf",
+            "cwd": "${workspaceFolder}/zephyr-iot-sample",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/opt/toolchains/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+            "stopAtEntry": true,
+            "setupCommands": [
+                {
+                    "text": "-enable-pretty-printing"
+                },
+                {
+                    "text": "target extended-remote :3333"
+                },
+                {
+                    "text": "monitor reset halt"
+                },
+                {
+                    "text": "file ${workspaceFolder}/zephyr-iot-sample/build/zephyr/zephyr.elf"
+                },
+                {
+                    "text": "load"
+                },
+                {
+                    "text": "monitor reset init"
+                }
+            ],
+            "preLaunchTask": "Start OpenOCD",
+            "externalConsole": false,
+        }
+    ]
+}
