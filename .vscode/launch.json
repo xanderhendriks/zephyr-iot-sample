@@ -9,6 +9,7 @@
             "MIMode": "gdb",
             "miDebuggerPath": "/opt/toolchains/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
             "stopAtEntry": true,
+            "svdFile": "${workspaceFolder}/.vscode/STM32L4S5.svd",
             "setupCommands": [
                 {
                     "text": "-enable-pretty-printing"

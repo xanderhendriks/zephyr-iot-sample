@@ -1,3 +1,6 @@
 {
-    "C_Cpp.default.compileCommands": "${workspaceFolder}/zephyr-iot-sample/build/compile_commands.json"
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/zephyr-iot-sample/build/compile_commands.json",
+    "files.associations": {
+        "mqtt.h": "c"
+    }
 }
